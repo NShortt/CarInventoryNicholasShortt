@@ -191,6 +191,7 @@ namespace CarInventoryNicholasShortt
             this.buttonExit.Text = "E&xit";
             this.toolTip.SetToolTip(this.buttonExit, "Click to close the form.");
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.ExitButton);
             // 
             // buttonReset
             // 
@@ -201,6 +202,7 @@ namespace CarInventoryNicholasShortt
             this.buttonReset.Text = "&Reset";
             this.toolTip.SetToolTip(this.buttonReset, "Click to clear entry fields.");
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.ResetButton);
             // 
             // buttonEnter
             // 
@@ -211,6 +213,7 @@ namespace CarInventoryNicholasShortt
             this.buttonEnter.Text = "&Enter";
             this.toolTip.SetToolTip(this.buttonEnter, "Click to enter data to the list.");
             this.buttonEnter.UseVisualStyleBackColor = true;
+            this.buttonEnter.Click += new System.EventHandler(this.EnterButton);
             // 
             // listViewEntries
             // 
@@ -230,6 +233,7 @@ namespace CarInventoryNicholasShortt
             this.toolTip.SetToolTip(this.listViewEntries, "Display lists of entered data.");
             this.listViewEntries.UseCompatibleStateImageBehavior = false;
             this.listViewEntries.View = System.Windows.Forms.View.Details;
+            this.listViewEntries.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.PreventCheck);
             // 
             // columnHeaderNew
             // 
