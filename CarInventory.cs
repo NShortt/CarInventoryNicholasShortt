@@ -46,16 +46,58 @@ namespace CarInventoryNicholasShortt
 
         }
 
+        /// <summary>
+        /// Reset the form inputs
+        /// </summary>
         private void ResetButton(object sender, EventArgs e)
         {
-
+            SetDefaults();
         }
 
+        /// <summary>
+        /// Close the form
+        /// </summary>
         private void ExitButton(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Converts the car passed in to a ListViewItem and adds it to listViewEntries
+        /// </summary>
+        /// <param name="newCar"></param>
+        private void AddToList(Car newCar)
+        {​​
+            // Declare and instantiate a new ListViewItem.
+            ListViewItem carItem = new ListViewItem();
 
+
+
+            carItem.Checked = newCar.NewStatus;
+            carItem.SubItems.Add(newCar.Id.ToString());
+            carItem.SubItems.Add(newCar.Make);
+            carItem.SubItems.Add(newCar.Model);
+            carItem.SubItems.Add(newCar.Year.ToString());
+            carItem.SubItems.Add(newCar.Price.ToString());
+
+
+
+            // Add the carItem to the ListView.
+            listViewEntries.Items.Add(carItem);
+        }​​
+
+        /// <summary>
+        /// Reset the form's input fields to their default state.
+        /// </summary>
+        private void SetDefaults()
+        {
+            comboBoxModel.SelectedIndex = -1;
+            textBoxModel.Clear();
+            comboBoxYear.SelectedIndex = -1;
+            textBoxPrice.Clear();
+            checkBoxNew.Checked = false;
+
+            comboBoxModel.Focus();
+        }
     }
 }

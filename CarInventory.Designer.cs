@@ -31,11 +31,11 @@ namespace CarInventoryNicholasShortt
         {
             this.components = new System.ComponentModel.Container();
             this.checkBoxNew = new System.Windows.Forms.CheckBox();
-            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.labelPrice = new System.Windows.Forms.Label();
             this.labelModel = new System.Windows.Forms.Label();
-            this.textBoxFirstName = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBoxModel = new System.Windows.Forms.TextBox();
+            this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.labelYear = new System.Windows.Forms.Label();
             this.labelMake = new System.Windows.Forms.Label();
             this.comboBoxModel = new System.Windows.Forms.ComboBox();
@@ -66,15 +66,15 @@ namespace CarInventoryNicholasShortt
             this.checkBoxNew.Text = "&New:";
             this.checkBoxNew.UseVisualStyleBackColor = true;
             // 
-            // textBoxLastName
+            // textBoxPrice
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(160, 178);
-            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.ReadOnly = true;
-            this.textBoxLastName.Size = new System.Drawing.Size(223, 35);
-            this.textBoxLastName.TabIndex = 7;
-            this.toolTip.SetToolTip(this.textBoxLastName, "Enter the price of the car.");
+            this.textBoxPrice.Location = new System.Drawing.Point(160, 178);
+            this.textBoxPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.ReadOnly = true;
+            this.textBoxPrice.Size = new System.Drawing.Size(223, 35);
+            this.textBoxPrice.TabIndex = 7;
+            this.toolTip.SetToolTip(this.textBoxPrice, "Enter the price of the car.");
             // 
             // labelPrice
             // 
@@ -96,22 +96,22 @@ namespace CarInventoryNicholasShortt
             this.labelModel.Text = "M&odel:";
             this.labelModel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBoxFirstName
+            // textBoxModel
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(160, 69);
-            this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.ReadOnly = true;
-            this.textBoxFirstName.Size = new System.Drawing.Size(223, 35);
-            this.textBoxFirstName.TabIndex = 3;
-            this.toolTip.SetToolTip(this.textBoxFirstName, "Enter the car\'s model.");
+            this.textBoxModel.Location = new System.Drawing.Point(160, 69);
+            this.textBoxModel.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxModel.Name = "textBoxModel";
+            this.textBoxModel.ReadOnly = true;
+            this.textBoxModel.Size = new System.Drawing.Size(223, 35);
+            this.textBoxModel.TabIndex = 3;
+            this.toolTip.SetToolTip(this.textBoxModel, "Enter the car\'s model.");
             // 
-            // comboBox1
+            // comboBoxYear
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 30;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxYear.FormattingEnabled = true;
+            this.comboBoxYear.ItemHeight = 30;
+            this.comboBoxYear.Items.AddRange(new object[] {
             "Dr.",
             "Duchess",
             "Duke",
@@ -123,12 +123,12 @@ namespace CarInventoryNicholasShortt
             "Ms.",
             "Mx.",
             "Sir"});
-            this.comboBox1.Location = new System.Drawing.Point(160, 122);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(224, 38);
-            this.comboBox1.TabIndex = 5;
-            this.toolTip.SetToolTip(this.comboBox1, "Select the year the car was made.");
+            this.comboBoxYear.Location = new System.Drawing.Point(160, 122);
+            this.comboBoxYear.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxYear.Name = "comboBoxYear";
+            this.comboBoxYear.Size = new System.Drawing.Size(224, 38);
+            this.comboBoxYear.TabIndex = 5;
+            this.toolTip.SetToolTip(this.comboBoxYear, "Select the year the car was made.");
             // 
             // labelYear
             // 
@@ -275,12 +275,12 @@ namespace CarInventoryNicholasShortt
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.labelResult);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxYear);
             this.Controls.Add(this.labelYear);
             this.Controls.Add(this.comboBoxModel);
             this.Controls.Add(this.checkBoxNew);
-            this.Controls.Add(this.textBoxLastName);
-            this.Controls.Add(this.textBoxFirstName);
+            this.Controls.Add(this.textBoxPrice);
+            this.Controls.Add(this.textBoxModel);
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelMake);
             this.Controls.Add(this.labelModel);
@@ -295,11 +295,11 @@ namespace CarInventoryNicholasShortt
 
         #endregion
         private System.Windows.Forms.CheckBox checkBoxNew;
-        private System.Windows.Forms.TextBox textBoxLastName;
+        private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.Label labelPrice;
         private System.Windows.Forms.Label labelModel;
-        private System.Windows.Forms.TextBox textBoxFirstName;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBoxModel;
+        private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Label labelYear;
         private System.Windows.Forms.Label labelMake;
         private System.Windows.Forms.ComboBox comboBoxModel;
