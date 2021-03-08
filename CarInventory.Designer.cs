@@ -109,7 +109,6 @@ namespace CarInventoryNicholasShortt
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.ItemHeight = 30;
             this.comboBox1.Items.AddRange(new object[] {
@@ -154,7 +153,6 @@ namespace CarInventoryNicholasShortt
             // comboBoxModel
             // 
             this.comboBoxModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxModel.Enabled = false;
             this.comboBoxModel.FormattingEnabled = true;
             this.comboBoxModel.Items.AddRange(new object[] {
             "Dr.",
