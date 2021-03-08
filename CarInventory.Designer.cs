@@ -224,6 +224,7 @@ namespace CarInventoryNicholasShortt
             this.columnHeaderModel,
             this.columnHeaderYear,
             this.columnHeaderPrice});
+            this.listViewEntries.FullRowSelect = true;
             this.listViewEntries.HideSelection = false;
             this.listViewEntries.Location = new System.Drawing.Point(21, 275);
             this.listViewEntries.MultiSelect = false;
@@ -234,6 +235,7 @@ namespace CarInventoryNicholasShortt
             this.listViewEntries.UseCompatibleStateImageBehavior = false;
             this.listViewEntries.View = System.Windows.Forms.View.Details;
             this.listViewEntries.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.PreventCheck);
+            this.listViewEntries.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.CarSelected);
             // 
             // columnHeaderNew
             // 
@@ -286,7 +288,7 @@ namespace CarInventoryNicholasShortt
             this.Controls.Add(this.labelModel);
             this.Name = "CarInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Car Inventory";
             this.Load += new System.EventHandler(this.FormLoad);
             this.ResumeLayout(false);
             this.PerformLayout();

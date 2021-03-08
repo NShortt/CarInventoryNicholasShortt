@@ -43,8 +43,6 @@ namespace CarInventoryNicholasShortt
         /// <param name="newStatus">true if a car is a new car</param>
         public Car(string make, string model, int year, double price, bool newStatus) : this()
         {
-            // The ": this()" part above calls the default constructor, setting the Id.
-
             // Set all of the instance variables within this class using the values
             // passed into this constructor.
             carMake = make;

@@ -20,6 +20,8 @@ namespace CarInventoryNicholasShortt
             InitializeComponent();
         }
 
+        #region "Event Handler"
+
         private void FormLoad(object sender, EventArgs e)
         {
 
@@ -38,6 +40,20 @@ namespace CarInventoryNicholasShortt
 
                 // Message on attempt to check a box in view list.
                 labelResult.Text = "Go away human.";
+            }
+        }
+
+        /// <summary>
+        /// When a car in the list view is select write the car properties into the controls.
+        /// </summary>
+        private void CarSelected(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (listViewEntries.Items.Count > 0 && listViewEntries.FocusedItem != null)
+            {
+                comboBoxModel.Text = listViewEntries.FocusedItem.SubItems[1].Text;
+                textBoxModel.Text = listViewEntries.FocusedItem.SubItems[2].Text;
+                comboBoxYear.Text = listViewEntries.FocusedItem.SubItems[3].Text;
+                textBoxPrice.Text = listViewEntries.FocusedItem.SubItems[4].Text;
             }
         }
 
@@ -62,6 +78,10 @@ namespace CarInventoryNicholasShortt
             Close();
         }
 
+        #endregion
+
+        #region "Function"
+
         /// <summary>
         /// Converts the car passed in to a ListViewItem and adds it to listViewEntries
         /// </summary>
@@ -71,7 +91,7 @@ namespace CarInventoryNicholasShortt
             // Declare and instantiate a new ListViewItem.
             ListViewItem carItem = new ListViewItem();
 
-
+            isAutomated = true;
 
             carItem.Checked = newCar.NewStatus;
             carItem.SubItems.Add(newCar.Id.ToString());
@@ -84,6 +104,8 @@ namespace CarInventoryNicholasShortt
 
             // Add the carItem to the ListView.
             listViewEntries.Items.Add(carItem);
+
+            isAutomated = false;
         }​​
 
         /// <summary>
@@ -91,13 +113,19 @@ namespace CarInventoryNicholasShortt
         /// </summary>
         private void SetDefaults()
         {
+            // Reset fields to default state
             comboBoxModel.SelectedIndex = -1;
             textBoxModel.Clear();
             comboBoxYear.SelectedIndex = -1;
             textBoxPrice.Clear();
             checkBoxNew.Checked = false;
 
+            // Set the defualt focus
             comboBoxModel.Focus();
         }
+
+        #endregion
+
+
     }
 }
