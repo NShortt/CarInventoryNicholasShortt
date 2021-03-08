@@ -12,10 +12,14 @@ namespace CarInventoryNicholasShortt
 {
     public partial class CarInventory : System.Windows.Forms.Form
     {
+        private List<Car> carList = new List<Car>();
+
         public CarInventory()
         {
             InitializeComponent();
         }
+
+
 
     }
 }

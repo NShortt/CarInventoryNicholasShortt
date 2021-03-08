@@ -9,148 +9,155 @@ namespace CarInventoryNicholasShortt
     /// </summary>
     class Car
     {
-        // Static private variable to hold the number of customers.
-        private static int customerCount = 0;
-        // Private variable to hold the customer's identification number.
-        private int customerId = 0;
-        // Private variable to hold the customer's title.
-        private string customerTitle = String.Empty;
-        // Private variable to hold the customer's first name.
-        private string customerFirstName = String.Empty;
-        // Private variable to hold the customer's last name.
-        private string customerLastName = String.Empty;
-        // Private variable to hold the customer's status.
-        private bool customerVipStatus = false;
+        // Static private variable to hold the number of cars.
+        private static int carCount = 0;
+        // Private variable to hold the car's identification number.
+        private int carId = 0;
+        // Private variable to hold the car's make.
+        private string carMake = String.Empty;
+        // Private variable to hold the customer's model.
+        private string carModel = String.Empty;
+        // Private variable to hold the customer's year.
+        private int carYear = 0;
+        // Private variable to hold the customer's price. 
+        private double carPrice = 0.0;
+        // Private variable to hold the car's status.
+        private bool carNewStatus = false;
 
         /// <summary>
-        /// Constructor - Default - creates a new customer object.
+        /// Constructor - Default - creates a new car object.
         /// </summary>
         public Car()
         {
-            customerCount += 1;
-            customerId = customerCount;
+            carCount += 1;
+            carId = carCount;
         }
 
         /// <summary>
-        /// Constructor - Parameterized - creates a new customer object
+        /// Constructor - Parameterized - creates a new car object
         /// </summary>
-        /// <param name="title">Customer's title</param>
-        /// <param name="firstName">Customer's first name</param>
-        /// <param name="lastName">Customer's last name</param>
-        /// <param name="vipStatus">true if a customer is a very important person</param>
-        public Car(string title, string firstName, string lastName, bool vipStatus) : this()
+        /// <param name="make">Car's title</param>
+        /// <param name="model">Car's first name</param>
+        /// <param name="year">Car's last name</param>
+        /// <param name="price">Car's price</param>
+        /// <param name="newStatus">true if a car is a new car</param>
+        public Car(string make, string model, int year, double price, bool newStatus) : this()
         {
             // The ": this()" part above calls the default constructor, setting the Id.
 
             // Set all of the instance variables within this class using the values
             // passed into this constructor.
-            customerTitle = title;
-            customerFirstName = firstName;
-            customerLastName = lastName;
-            customerVipStatus = vipStatus;
+            carMake = make;
+            carModel = model;
+            carYear = year;
+            carPrice = price;
+            carNewStatus = newStatus;
         }
 
         /// <summary>
-        /// Count ReadOnly Property - Gets the number of customers that have been instantiated/created
+        /// Count ReadOnly Property - Gets the number of cars that have been instantiated/created
         /// </summary>
         public int Count
         {
             get
             {
-                return customerCount;
+                return carCount;
             }
         }
 
         /// <summary>
-        /// IdentificationNumber ReadOnly Property - Gets a specific customers' identification number
+        /// IdentificationNumber ReadOnly Property - Gets a specific cars' identification number
         /// </summary>
         public int Id
         {
             get
             {
-                return customerId;
+                return carId;
             }
         }
 
         /// <summary>
-        /// VeryImportantPersonStatus Property - >Gets and Sets the Very Important Person status of a customer
+        /// NewStatus Property - >Gets and Sets the New status of a car
         /// </summary>
-        public bool VipStatus
+        public bool NewStatus
         {
             get
             {
-                return customerVipStatus;
+                return carNewStatus;
             }
             set
             {
-                // The value passed in is always called "value" by default.
-                customerVipStatus = value;
+                carNewStatus = value;
             }
         }
 
         /// <summary>
-        /// Title property - Gets and Sets the title of a customer
+        /// Make property - Gets and Sets the make of a car
         /// </summary>
-        public string Title
+        public string Make
         {
             get
             {
-                return customerTitle;
+                return carMake;
             }
             set
             {
-                // The value passed in is always called "value" by default - regardless of the data type.
-                customerTitle = value;
+                carMake = value;
             }
         }
 
         /// <summary>
-        /// FirstName property - Gets and Sets the first name of a customer
+        /// Model property - Gets and Sets the model of a car
         /// </summary>
-        public string FirstName
+        public string Model
         {
             get
             {
-                return customerFirstName;
+                return carModel;
             }
             set
             {
-                customerFirstName = value;
+                carModel = value;
             }
         }
 
         /// <summary>
-        /// LastName property - Gets and Sets the last name of a customer
+        /// Year property - Gets and Sets the year of a car
         /// </summary>
-        public string LastName
+        public int Year
         {
             get
             {
-                return customerLastName;
+                return carYear;
             }
             set
             {
-                customerLastName = value;
+                carYear = value;
             }
         }
 
         /// <summary>
-        /// GetSalutation is a function that a salutation based on the private properties within the class scope
+        /// Price property - Gets and Sets the price of a car
         /// </summary>
-        /// <returns>string describing the customer</returns>
-        public string GetSalutation()
+        public double Price
         {
-            return "Hi, my name is " + customerTitle + " " + customerFirstName + " " + customerLastName + ", " + (customerVipStatus ? "I am a VIP" : "I am not a VIP");
+            get
+            {
+                return carPrice;
+            }
+            set
+            {
+                carPrice = value;
+            }
+        }
 
-            // The single line of code above is equivalent to the following eight lines of code:
-            //if (customerVipStatus)
-            //{
-            //    return "Hi, my name is " + customerTitle + " " + customerFirstName + " " + customerLastName + ", I am a VIP";
-            //}
-            //else
-            //{
-            //    return "Hi, my name is " + customerTitle + " " + customerFirstName + " " + customerLastName + ", I am not a VIP";
-            //}
+        /// <summary>
+        /// GetSummary is a function that a summary based on the private properties within the class scope
+        /// </summary>
+        /// <returns>string describing the car</returns>
+        public string GetSummary()
+        {
+            return "This is a " + (carNewStatus ? "new " : "used ") + carYear + " " + carMake + " " + carModel + " for $" + carPrice;
         }
     }
 }
