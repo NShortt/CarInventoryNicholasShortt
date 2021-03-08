@@ -20,13 +20,24 @@ namespace CarInventoryNicholasShortt
             InitializeComponent();
         }
 
+        private void FormLoad(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// When a user trys to check a box in the list view, keep it as it was.
+        /// </summary>
         private void PreventCheck(object sender, ItemCheckEventArgs e)
         {
             // Only prevent checking if it is the user
-            if (isAutomated)
+            if (!isAutomated)
             {
                 // Make the new value equal to the old value to preven change.
                 e.NewValue = e.CurrentValue;
+
+                // Message on attempt to check a box in view list.
+                labelResult.Text = "Go away human.";
             }
         }
 
@@ -44,5 +55,7 @@ namespace CarInventoryNicholasShortt
         {
             Close();
         }
+
+
     }
 }
