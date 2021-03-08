@@ -1,7 +1,7 @@
 ﻿
 namespace CarInventoryNicholasShortt
 {
-    partial class Form
+    partial class CarInventory
     {
         /// <summary>
         ///  Required designer variable.
@@ -261,10 +261,12 @@ namespace CarInventoryNicholasShortt
             this.columnHeaderPrice.Text = "Price";
             this.columnHeaderPrice.Width = 100;
             // 
-            // Form
+            // CarInventory
             // 
+            this.AcceptButton = this.buttonEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonReset;
             this.ClientSize = new System.Drawing.Size(598, 678);
             this.Controls.Add(this.listViewEntries);
             this.Controls.Add(this.buttonEnter);
@@ -280,7 +282,7 @@ namespace CarInventoryNicholasShortt
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelMake);
             this.Controls.Add(this.labelModel);
-            this.Name = "Form";
+            this.Name = "CarInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);

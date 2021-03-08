@@ -17,7 +17,7 @@ namespace CarInventoryNicholasShortt
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form());
+            Application.Run(new CarInventory());
         }
     }
 }

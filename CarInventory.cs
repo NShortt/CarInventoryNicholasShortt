@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CarInventoryNicholasShortt
 {
-    public partial class Form : System.Windows.Forms.Form
+    public partial class CarInventory : System.Windows.Forms.Form
     {
-        public Form()
+        public CarInventory()
         {
             InitializeComponent();
         }
