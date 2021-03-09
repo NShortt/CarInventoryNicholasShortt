@@ -24,7 +24,11 @@ namespace CarInventoryNicholasShortt
 
         private void FormLoad(object sender, EventArgs e)
         {
-
+            const int NUMBER_OF_YEARS = 100;
+            for (int year = DateTime.Today.Year; year >= DateTime.Today.Year - NUMBER_OF_YEARS; year--)
+            {
+                comboBoxYear.Items.Add(year);
+            }
         }
 
         /// <summary>
@@ -49,17 +53,31 @@ namespace CarInventoryNicholasShortt
         private void CarSelected(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (listViewEntries.Items.Count > 0 && listViewEntries.FocusedItem != null)
-            {
-                comboBoxModel.Text = listViewEntries.FocusedItem.SubItems[1].Text;
-                textBoxModel.Text = listViewEntries.FocusedItem.SubItems[2].Text;
-                comboBoxYear.Text = listViewEntries.FocusedItem.SubItems[3].Text;
-                textBoxPrice.Text = listViewEntries.FocusedItem.SubItems[4].Text;
+            {               
+                comboBoxMake.Text = listViewEntries.FocusedItem.SubItems[2].Text;
+                textBoxModel.Text = listViewEntries.FocusedItem.SubItems[3].Text;
+                comboBoxYear.Text = listViewEntries.FocusedItem.SubItems[4].Text;
+                textBoxPrice.Text = listViewEntries.FocusedItem.SubItems[5].Text;
+
+                checkBoxNew.Checked = listViewEntries.FocusedItem.Checked;
             }
         }
 
         private void EnterButton(object sender, EventArgs e)
         {
 
+            Car car = new Car();
+            car.Make = comboBoxMake.Text;
+            car.Model = textBoxModel.Text;
+            car.Year = comboBoxYear.Text;
+
+            double.TryParse(textBoxPrice.Text, out double test);
+
+            car.Price = test;
+
+            car.NewStatus = checkBoxNew.Checked;
+
+            AddToList(car);
         }
 
         /// <summary>
@@ -87,26 +105,22 @@ namespace CarInventoryNicholasShortt
         /// </summary>
         /// <param name="newCar"></param>
         private void AddToList(Car newCar)
-        {​​
-            // Declare and instantiate a new ListViewItem.
+        {
             ListViewItem carItem = new ListViewItem();
 
-            isAutomated = true;
-
             carItem.Checked = newCar.NewStatus;
+
             carItem.SubItems.Add(newCar.Id.ToString());
             carItem.SubItems.Add(newCar.Make);
             carItem.SubItems.Add(newCar.Model);
             carItem.SubItems.Add(newCar.Year.ToString());
             carItem.SubItems.Add(newCar.Price.ToString());
 
-
-
-            // Add the carItem to the ListView.
+            isAutomated = true;
             listViewEntries.Items.Add(carItem);
-
             isAutomated = false;
-        }​​
+        }
+
 
         /// <summary>
         /// Reset the form's input fields to their default state.
@@ -114,14 +128,21 @@ namespace CarInventoryNicholasShortt
         private void SetDefaults()
         {
             // Reset fields to default state
-            comboBoxModel.SelectedIndex = -1;
+            comboBoxMake.SelectedIndex = -1;
             textBoxModel.Clear();
             comboBoxYear.SelectedIndex = -1;
             textBoxPrice.Clear();
             checkBoxNew.Checked = false;
 
             // Set the defualt focus
-            comboBoxModel.Focus();
+            comboBoxMake.Focus();
+        }
+
+        private bool IsCarValid(string make, string model, string year, double price)
+        {
+            bool isValid = true;
+
+            return isValid;
         }
 
         #endregion

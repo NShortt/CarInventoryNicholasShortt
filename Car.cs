@@ -18,7 +18,7 @@ namespace CarInventoryNicholasShortt
         // Private variable to hold the customer's model.
         private string carModel = String.Empty;
         // Private variable to hold the customer's year.
-        private int carYear = 0;
+        private string carYear = String.Empty;
         // Private variable to hold the customer's price. 
         private double carPrice = 0.0;
         // Private variable to hold the car's status.
@@ -41,7 +41,7 @@ namespace CarInventoryNicholasShortt
         /// <param name="year">Car's last name</param>
         /// <param name="price">Car's price</param>
         /// <param name="newStatus">true if a car is a new car</param>
-        public Car(string make, string model, int year, double price, bool newStatus) : this()
+        public Car(string make, string model, string year, double price, bool newStatus) : this()
         {
             // Set all of the instance variables within this class using the values
             // passed into this constructor.
@@ -122,7 +122,7 @@ namespace CarInventoryNicholasShortt
         /// <summary>
         /// Year property - Gets and Sets the year of a car
         /// </summary>
-        public int Year
+        public string Year
         {
             get
             {

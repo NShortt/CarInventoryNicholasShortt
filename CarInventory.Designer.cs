@@ -38,7 +38,7 @@ namespace CarInventoryNicholasShortt
             this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.labelYear = new System.Windows.Forms.Label();
             this.labelMake = new System.Windows.Forms.Label();
-            this.comboBoxModel = new System.Windows.Forms.ComboBox();
+            this.comboBoxMake = new System.Windows.Forms.ComboBox();
             this.labelResult = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
@@ -57,7 +57,6 @@ namespace CarInventoryNicholasShortt
             // 
             this.checkBoxNew.AutoSize = true;
             this.checkBoxNew.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxNew.Enabled = false;
             this.checkBoxNew.Location = new System.Drawing.Point(101, 234);
             this.checkBoxNew.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxNew.Name = "checkBoxNew";
@@ -71,7 +70,6 @@ namespace CarInventoryNicholasShortt
             this.textBoxPrice.Location = new System.Drawing.Point(160, 178);
             this.textBoxPrice.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.ReadOnly = true;
             this.textBoxPrice.Size = new System.Drawing.Size(223, 35);
             this.textBoxPrice.TabIndex = 7;
             this.toolTip.SetToolTip(this.textBoxPrice, "Enter the price of the car.");
@@ -101,7 +99,6 @@ namespace CarInventoryNicholasShortt
             this.textBoxModel.Location = new System.Drawing.Point(160, 69);
             this.textBoxModel.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxModel.Name = "textBoxModel";
-            this.textBoxModel.ReadOnly = true;
             this.textBoxModel.Size = new System.Drawing.Size(223, 35);
             this.textBoxModel.TabIndex = 3;
             this.toolTip.SetToolTip(this.textBoxModel, "Enter the car\'s model.");
@@ -111,18 +108,6 @@ namespace CarInventoryNicholasShortt
             this.comboBoxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxYear.FormattingEnabled = true;
             this.comboBoxYear.ItemHeight = 30;
-            this.comboBoxYear.Items.AddRange(new object[] {
-            "Dr.",
-            "Duchess",
-            "Duke",
-            "Hon.",
-            "Lady",
-            "Lord",
-            "Mr.",
-            "Mrs.",
-            "Ms.",
-            "Mx.",
-            "Sir"});
             this.comboBoxYear.Location = new System.Drawing.Point(160, 122);
             this.comboBoxYear.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxYear.Name = "comboBoxYear";
@@ -150,11 +135,11 @@ namespace CarInventoryNicholasShortt
             this.labelMake.Text = "&Make:";
             this.labelMake.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBoxModel
+            // comboBoxMake
             // 
-            this.comboBoxModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxModel.FormattingEnabled = true;
-            this.comboBoxModel.Items.AddRange(new object[] {
+            this.comboBoxMake.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMake.FormattingEnabled = true;
+            this.comboBoxMake.Items.AddRange(new object[] {
             "Dr.",
             "Duchess",
             "Duke",
@@ -166,12 +151,12 @@ namespace CarInventoryNicholasShortt
             "Ms.",
             "Mx.",
             "Sir"});
-            this.comboBoxModel.Location = new System.Drawing.Point(160, 13);
-            this.comboBoxModel.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxModel.Name = "comboBoxModel";
-            this.comboBoxModel.Size = new System.Drawing.Size(224, 38);
-            this.comboBoxModel.TabIndex = 1;
-            this.toolTip.SetToolTip(this.comboBoxModel, "Select the car\'s make.");
+            this.comboBoxMake.Location = new System.Drawing.Point(160, 13);
+            this.comboBoxMake.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxMake.Name = "comboBoxMake";
+            this.comboBoxMake.Size = new System.Drawing.Size(224, 38);
+            this.comboBoxMake.TabIndex = 1;
+            this.toolTip.SetToolTip(this.comboBoxMake, "Select the car\'s make.");
             // 
             // labelResult
             // 
@@ -217,6 +202,7 @@ namespace CarInventoryNicholasShortt
             // 
             // listViewEntries
             // 
+            this.listViewEntries.CheckBoxes = true;
             this.listViewEntries.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderNew,
             this.columnHeaderID,
@@ -239,7 +225,7 @@ namespace CarInventoryNicholasShortt
             // 
             // columnHeaderNew
             // 
-            this.columnHeaderNew.Text = "New";
+            this.columnHeaderNew.Text = "New?";
             // 
             // columnHeaderID
             // 
@@ -279,7 +265,7 @@ namespace CarInventoryNicholasShortt
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.comboBoxYear);
             this.Controls.Add(this.labelYear);
-            this.Controls.Add(this.comboBoxModel);
+            this.Controls.Add(this.comboBoxMake);
             this.Controls.Add(this.checkBoxNew);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.textBoxModel);
@@ -304,7 +290,7 @@ namespace CarInventoryNicholasShortt
         private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Label labelYear;
         private System.Windows.Forms.Label labelMake;
-        private System.Windows.Forms.ComboBox comboBoxModel;
+        private System.Windows.Forms.ComboBox comboBoxMake;
         private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonReset;
