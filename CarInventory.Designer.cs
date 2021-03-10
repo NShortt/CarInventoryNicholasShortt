@@ -140,17 +140,19 @@ namespace CarInventoryNicholasShortt
             this.comboBoxMake.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMake.FormattingEnabled = true;
             this.comboBoxMake.Items.AddRange(new object[] {
-            "Dr.",
-            "Duchess",
-            "Duke",
-            "Hon.",
-            "Lady",
-            "Lord",
-            "Mr.",
-            "Mrs.",
-            "Ms.",
-            "Mx.",
-            "Sir"});
+            "Volkswagen",
+            "BMW",
+            "Ford",
+            "Toyota",
+            "Hyundai",
+            "Audi",
+            "Jeep",
+            "RAM",
+            "Nissan",
+            "Mazda",
+            "Lamborghini",
+            "Ferrari",
+            "Tesla"});
             this.comboBoxMake.Location = new System.Drawing.Point(160, 13);
             this.comboBoxMake.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxMake.Name = "comboBoxMake";
@@ -211,13 +213,14 @@ namespace CarInventoryNicholasShortt
             this.columnHeaderYear,
             this.columnHeaderPrice});
             this.listViewEntries.FullRowSelect = true;
+            this.listViewEntries.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewEntries.HideSelection = false;
             this.listViewEntries.Location = new System.Drawing.Point(21, 275);
             this.listViewEntries.MultiSelect = false;
             this.listViewEntries.Name = "listViewEntries";
             this.listViewEntries.Size = new System.Drawing.Size(546, 241);
             this.listViewEntries.TabIndex = 9;
-            this.toolTip.SetToolTip(this.listViewEntries, "Display lists of entered data.");
+            this.toolTip.SetToolTip(this.listViewEntries, "Display list of entered data.");
             this.listViewEntries.UseCompatibleStateImageBehavior = false;
             this.listViewEntries.View = System.Windows.Forms.View.Details;
             this.listViewEntries.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.PreventCheck);
@@ -225,7 +228,7 @@ namespace CarInventoryNicholasShortt
             // 
             // columnHeaderNew
             // 
-            this.columnHeaderNew.Text = "New?";
+            this.columnHeaderNew.Text = "New";
             // 
             // columnHeaderID
             // 
@@ -272,6 +275,8 @@ namespace CarInventoryNicholasShortt
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelMake);
             this.Controls.Add(this.labelModel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CarInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Car Inventory";

@@ -25,6 +25,7 @@ namespace CarInventoryNicholasShortt
         private void FormLoad(object sender, EventArgs e)
         {
             const int NUMBER_OF_YEARS = 100;
+            // Fill the year drop down upto the defined constant
             for (int year = DateTime.Today.Year; year >= DateTime.Today.Year - NUMBER_OF_YEARS; year--)
             {
                 comboBoxYear.Items.Add(year);
@@ -63,21 +64,62 @@ namespace CarInventoryNicholasShortt
             }
         }
 
+        /// <summary>
+        /// When the button is click the enter values will attempt to be added to the collection, or
+        /// if a car is currently selected a message will display a summary of it's details
+        /// </summary>
         private void EnterButton(object sender, EventArgs e)
-        {
+        {     
+            // Clear the label
+            labelResult.Text = String.Empty;
 
-            Car car = new Car();
-            car.Make = comboBoxMake.Text;
-            car.Model = textBoxModel.Text;
-            car.Year = comboBoxYear.Text;
+            // Check if no car is selected
+            if (listViewEntries.FocusedItem == null)
+            {
+                // Decalare varaibles
+                double price;
+                int year;
+                               
+                // Check if price is numeric
+                if (double.TryParse(textBoxPrice.Text, out price))
+                {
+                    // Validate the entry feilds
+                    if (IsCarValid(comboBoxMake.Text, textBoxModel.Text.Trim(), comboBoxYear.Text, price))
+                    {
+                        // Pass year entry into an int
+                        int.TryParse(comboBoxYear.Text, out year);
 
-            double.TryParse(textBoxPrice.Text, out double test);
+                        // Round the price to 2 decimal places
+                        price = Math.Round(price, 2);
 
-            car.Price = test;
-
-            car.NewStatus = checkBoxNew.Checked;
-
-            AddToList(car);
+                        // Create a car object using parametize constructor
+                        Car car = new Car(comboBoxMake.Text, textBoxModel.Text.Trim(), year, price, checkBoxNew.Checked);
+                        
+                        // Add object to list
+                        AddToList(car);
+                        // Clear entry feilds
+                        SetDefaults();
+                        // Display success message
+                        labelResult.Text = "It worked!";
+                    }
+                }
+                else
+                {
+                    // Display error if price is not numeric.
+                    labelResult.Text += "A price must be entered as a numeric value. Please try again.\n";
+                }
+            }
+            else 
+            {
+                // Get the ID value of the selected car
+                int index;
+                int.TryParse(listViewEntries.FocusedItem.SubItems[1].Text, out index);
+                // Clear entry feilds
+                SetDefaults();
+                // Display the car summary for the car in the list using ID number
+                labelResult.Text = carList[index -1].GetSummary();
+            }
+                    
         }
 
         /// <summary>
@@ -106,19 +148,25 @@ namespace CarInventoryNicholasShortt
         /// <param name="newCar"></param>
         private void AddToList(Car newCar)
         {
+            // Create a new list view object
             ListViewItem carItem = new ListViewItem();
 
             carItem.Checked = newCar.NewStatus;
 
+            // Add the data from the car object to the list view
             carItem.SubItems.Add(newCar.Id.ToString());
             carItem.SubItems.Add(newCar.Make);
             carItem.SubItems.Add(newCar.Model);
             carItem.SubItems.Add(newCar.Year.ToString());
-            carItem.SubItems.Add(newCar.Price.ToString());
+            carItem.SubItems.Add(newCar.Price.ToString("c"));
 
+            // Ensure we can change the check value and add the item
             isAutomated = true;
             listViewEntries.Items.Add(carItem);
             isAutomated = false;
+
+            // Add the car object to the list of cars
+            carList.Add(newCar);
         }
 
 
@@ -133,14 +181,54 @@ namespace CarInventoryNicholasShortt
             comboBoxYear.SelectedIndex = -1;
             textBoxPrice.Clear();
             checkBoxNew.Checked = false;
+            labelResult.Text = String.Empty;
 
             // Set the defualt focus
             comboBoxMake.Focus();
         }
-
+        /// <summary>
+        /// Validate the car entries
+        /// </summary>
+        /// <param name="make">Make entry</param>
+        /// <param name="model">Model entry</param>
+        /// <param name="year">Year entry</param>
+        /// <param name="price">Price entry</param>
+        /// <returns>Return if the entries are all valid or not</returns>
         private bool IsCarValid(string make, string model, string year, double price)
         {
             bool isValid = true;
+
+            // Check if the make is empty
+            if (make == "")
+            {
+                // Display error message and change to invalid
+                labelResult.Text += "A make must be select from the list. Please try again.\n";
+                isValid = false;
+            }
+
+            // Check if the model is empty
+            if (model == "")
+            {
+                // Display error message and change to invalid
+                labelResult.Text += "A model must be entered. Please try again.\n";
+                isValid = false;
+            }
+
+            // Check if the year is empty
+            if (year == "")
+            {
+                // Display error message and change to invalid
+                labelResult.Text += "A year must be select from the list. Please try again.\n";
+                isValid = false;
+            }
+
+            // Check if the price is negaticce
+            if (price < 0)
+            {
+                // Display error message and change to invalid
+                labelResult.Text += "Price cannot be a negative number. Please try again.\n";
+                isValid = false;
+            }
 
             return isValid;
         }

@@ -5,7 +5,7 @@ using System.Text;
 namespace CarInventoryNicholasShortt
 {
     /// <summary>
-    /// 
+    /// A class to hold the information on a car, and give a small summary
     /// </summary>
     class Car
     {
@@ -18,7 +18,7 @@ namespace CarInventoryNicholasShortt
         // Private variable to hold the customer's model.
         private string carModel = String.Empty;
         // Private variable to hold the customer's year.
-        private string carYear = String.Empty;
+        private int carYear = 0;
         // Private variable to hold the customer's price. 
         private double carPrice = 0.0;
         // Private variable to hold the car's status.
@@ -41,7 +41,7 @@ namespace CarInventoryNicholasShortt
         /// <param name="year">Car's last name</param>
         /// <param name="price">Car's price</param>
         /// <param name="newStatus">true if a car is a new car</param>
-        public Car(string make, string model, string year, double price, bool newStatus) : this()
+        public Car(string make, string model, int year, double price, bool newStatus) : this()
         {
             // Set all of the instance variables within this class using the values
             // passed into this constructor.
@@ -122,7 +122,7 @@ namespace CarInventoryNicholasShortt
         /// <summary>
         /// Year property - Gets and Sets the year of a car
         /// </summary>
-        public string Year
+        public int Year
         {
             get
             {
@@ -155,7 +155,7 @@ namespace CarInventoryNicholasShortt
         /// <returns>string describing the car</returns>
         public string GetSummary()
         {
-            return "This is a " + (carNewStatus ? "new " : "used ") + carYear + " " + carMake + " " + carModel + " for $" + carPrice;
+            return "This is a " + (carNewStatus ? "new " : "used ") + carYear + " " + carMake + " " + carModel + " for " + carPrice.ToString("c");
         }
     }
 }
